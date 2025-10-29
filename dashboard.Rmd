@@ -1,0 +1,34 @@
+---
+title: "Interactive Dashboard — Instacart"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(p8105.datasets)
+library(forcats)
+
+
+data("instacart")
+set.seed(1)
+ic <- instacart %>% dplyr::sample_n(50000)
+
+
+ic <- ic %>%
+  mutate(
+    dow  = factor(order_dow, levels = 0:6,
+                  labels = c("Sun","Mon","Tue","Wed","Thu","Fri","Sat")),
+    hour = order_hour_of_day
+  )
+p0 <- ggplot(ic, aes(hour)) +
+geom_histogram(binwidth = 1) +
+labs(title = "Orders by hour (sample)", x = "Hour of day", y = "Count")
+
+plotly::ggplotly(p0)
+```
