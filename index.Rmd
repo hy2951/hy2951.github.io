@@ -1,0 +1,11 @@
+---
+title: "Hi, I'm Haochen Yu"
+output: html_document
+---
+
+Welcome! I'm a biostatistics student interested in data science.
+
+- 📫 Email: <hy2951@cumc.columbia.edu>  
+- 🧑‍💻 GitHub: <https://github.com/hy2951>
+
+Use the navigation bar to visit my **Resume** and the **Dashboard** for this assignment.

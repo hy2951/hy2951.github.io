@@ -1,0 +1,40 @@
+---
+title: "Resume"
+output: html_document
+---
+
+## Contact
+- **Name:** Haochen Yu  
+- **Phone:** +86 18505459116,  +1 2163161697
+- **Email:** <hy2951@cumc.columbia.edu>  
+- **GitHub:** <https://github.com/hy2951>
+
+## Education
+- **Case Western Reserve University**, Cleveland, OH  
+  **B.Sc. in Statistics**, Minor in Mathematics (2021–2025)  
+  **GPA:** 3.76 / 4.0 | **GRE:** V=165, Q=170  
+  **Relevant coursework:** Data Analysis and Linear Models; Discrete Mathematics; Principles of Microeconomics; Statistics for Business and Management; Calculus III; Multivariate Analysis and Data Management
+
+## Experience & Research
+- **Intern**, Capgemini (2023.12.28–2024.01.28)  
+  Analyzed large databases; configured Python virtual environments; identified outliers; trained basic ML models.
+
+- **Research Assistant**, Binzhou Medical University (2024.02.04–2024.05.03)  
+  Worked with Dr. Peng Lu on “Associations between blood nickel and lung function in young Chinese: An observational study combining epidemiology and metabolomics.”  
+  Responsibilities: literature review, research writing, data tasks, and team coordination.
+
+- **Assistant**, China Europe International Business School (CEIBS) (2024.05.20–2024.08.23)  
+  Addressed declining excavator sales for SANY: analyzed client feedback, identified 10 key decision factors, designed and deployed a large-scale survey, applied the ABB model, and produced recommendations to improve sales strategy.
+
+## Skills
+- **Programming / Tools:** R (tidyverse, ggplot2, dplyr, tidyr, plotly, flexdashboard), Python (pandas), SQL, Git/GitHub  
+- **Methods:** Data cleaning, visualization, statistical modeling, survey design
+
+## Awards
+- **Dean’s High Honors**, Case Western Reserve University — Fall 2021, Spring 2022, Fall 2022, Spring 2023
+
+## Languages
+- **Mandarin:** Native | **English:** TOEFL L=29, R=30, W=28, S=23
+
+## Interests
+- Flute (Grade 10, Chinese Musical Association); Badminton
