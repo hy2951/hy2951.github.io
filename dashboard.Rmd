@@ -32,3 +32,65 @@ labs(title = "Orders by hour (sample)", x = "Hour of day", y = "Count")
 
 plotly::ggplotly(p0)
 ```
+
+### Top departments (bar)
+```{r}
+# 15 most-ordered departments
+top_dept <- ic %>%
+  dplyr::count(department, name = "n") %>%
+  dplyr::arrange(desc(n)) %>%
+  dplyr::slice_head(n = 15)
+
+p_bar <- ggplot(top_dept, aes(x = reorder(department, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(title = "Top 15 departments by orders",
+       x = NULL, y = "Number of products ordered")
+
+plotly::ggplotly(p_bar)
+```
+
+### Orders by hour × day (line)
+```{r}
+# Aggregate order counts by day-of-week and hour
+by_hour <- ic %>%
+  dplyr::group_by(dow, hour) %>%
+  dplyr::summarise(n = dplyr::n(), .groups = "drop")
+
+p_line <- ggplot(by_hour, aes(x = hour, y = n, color = dow, group = dow)) +
+  geom_line() +
+  labs(title = "Order volume by hour across days",
+       x = "Hour of day", y = "Orders", color = "Day")
+
+plotly::ggplotly(p_line, tooltip = c("x","y","color"))
+```
+
+### Aisle add-to-cart order (boxplot)
+```{r}
+# Keep aisles with enough observations; collapse to top 15 aisles
+aisle_box <- ic %>%
+  dplyr::group_by(aisle) %>%
+  dplyr::filter(dplyr::n() >= 400) %>%   
+  dplyr::ungroup() %>%
+  dplyr::mutate(aisle = forcats::fct_lump_n(aisle, n = 15)) %>%
+  dplyr::filter(!is.na(aisle))
+
+aisle_order <- aisle_box %>%
+  dplyr::group_by(aisle) %>%
+  dplyr::summarise(med = median(add_to_cart_order, na.rm = TRUE), .groups = "drop") %>%
+  dplyr::arrange(med) %>%
+  dplyr::pull(aisle)
+
+aisle_box <- aisle_box %>%
+  dplyr::mutate(aisle = factor(aisle, levels = aisle_order))
+
+p_box <- ggplot(aisle_box, aes(x = aisle, y = add_to_cart_order)) +
+  geom_boxplot(outlier.alpha = 0.2) +
+  coord_flip() +
+  labs(title = "Add-to-cart order distribution by aisle",
+       x = NULL, y = "Add-to-cart order (position in the cart)")
+
+plotly::ggplotly(p_box, tooltip = c("x","y"))
+```
+
+
